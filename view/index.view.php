@@ -1,5 +1,5 @@
 <?php
-require_once 'layouts/header.view.php';
+include('layouts/header.view.php');
 ?>
 <h1 class="display-1 text-center mb-5">Meme Generator</h1>
 <div class="row">
@@ -10,6 +10,6 @@ require_once 'layouts/header.view.php';
 <?php endforeach; ?>
 </div>
 <?php
-require_once 'layouts/footer.view.php';
-require_once 'components/modal.view.php';
+include('layouts/footer.view.php');
+include('components/modal.view.php');
 ?>

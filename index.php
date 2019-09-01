@@ -1,8 +1,8 @@
 <?php
-require 'app/MemeController.php';
-$memesAPI = new MemeController;
-$memes = $memesAPI->getMemes();
-require 'view/index.view.php';
+require 'vendor/autoload.php';
+require 'core/bootstrap.php';
+Router::load('routes.php')->direct(Request::uri(), Request::method());
+
 
 
 
