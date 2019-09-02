@@ -12,29 +12,19 @@ class MemeController
         return view('index', compact('memes'));
     }
 
-    public function postMeme($template_id, $text0, $text1) 
+    public function store()
     {
-        $client = new Client([
-            'base_uri' => $this->base_uri,
-            'timeout' => $this->timeout,
-        ]);
-        try {
-            $response = $client->request('POST', '/caption_image', [
-                'form_params' => [
-                    'template_id' => $template_id,
-                    'username' => $this->username,
-                    'password' => $this->password,
-                    'text0' => $text0,
-                    'text1' => $text1,
-                ],
-            ]);
-            $body = $response->getBody();
-            $body = json_decode($body);
-            $meme = $body->data;
-            return $meme;
-        } catch(Exception $e) {
-            $message = 'Something went wrond with API error: ' . $e->getMessage();
-            return $message;
+        if (!isset($_POST['submitText'])) {
+            header('Location: /');
         }
+
+        //add validation empty string
+        $text0 = trim(htmlspecialchars($_POST['text0']));
+        $text1 = trim(htmlspecialchars($_POST['text1']));
+        $template_id = trim(htmlspecialchars($_POST['template_id']));
+
+        $response = App::get('api')->postMeme($template_id, $text0, $text1);
+        // var_dump($response);
+        return view('post', compact('response'));
     }
 }

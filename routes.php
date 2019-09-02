@@ -1,3 +1,4 @@
 <?php 
 
-$router->get('meme_generator', 'MemeController@index');
+$router->get('', 'MemeController@index');
+$router->post('post', 'MemeController@store');

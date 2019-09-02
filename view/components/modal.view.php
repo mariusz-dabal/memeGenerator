@@ -9,18 +9,19 @@
       </div>
       <div class="modal-body">
         <img src=<?= $meme->url ?> class="img-fluid modal-img" alt="Responsive image">
-        <form method="post" action="router.php">
-        <div class="form-group">
-          <label for="upperText">Upper Text</label>
-          <input type="text" class="form-control" id="upperText" name="text0">
-        </div>
-        <div class="form-group">
-          <label for="lowerText">Lower Text</label>
-          <input type="text" class="form-control" id="lowerText" name="text1">
-        </div>
-        <button type="submit" class="btn btn-primary" name="submitText">Submit</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </form>
+        <form method="post" action="/post">
+          <div class="form-group">
+            <label for="upperText">Upper Text</label>
+            <input type="text" class="form-control" id="upperText" name="text0">
+          </div>
+          <div class="form-group">
+            <label for="lowerText">Lower Text</label>
+            <input type="text" class="form-control" id="lowerText" name="text1">
+          </div>
+          <input type="hidden" name="template_id" class="modalId">
+          <button type="submit" class="btn btn-primary" name="submitText">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
       </div>
     </div>
   </div>

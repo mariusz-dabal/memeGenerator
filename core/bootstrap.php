@@ -5,7 +5,7 @@
 
    App::bind('api', new ApiController($config['base_uri'], $config['timeout'], $config['username'],$config['password']));
 
-   function view($name, $data)
+   function view($name, $data = [])
    {
         extract($data);
         return require "view/{$name}.view.php";
